@@ -7,7 +7,7 @@ android {
     namespace = "com.example.whatsdamhoneycomb"
     compileSdk = 33
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 
