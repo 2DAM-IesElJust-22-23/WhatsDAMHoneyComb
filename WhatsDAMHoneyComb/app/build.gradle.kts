@@ -7,6 +7,10 @@ android {
     namespace = "com.example.whatsdamhoneycomb"
     compileSdk = 33
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.whatsdamhoneycomb"
         minSdk = 24
