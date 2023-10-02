@@ -23,7 +23,7 @@
 
 
     <EditText
-        android:id="@+id/MessageText"
+        android:id="@+id/messageText"
         android:layout_width="357dp"
         android:layout_height="42dp"
         android:ems="10"
@@ -41,8 +41,8 @@
         android:backgroundTint="#3F51B5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/MessageText"
-        app:layout_constraintTop_toTopOf="@+id/MessageText"
+        app:layout_constraintStart_toEndOf="@+id/messageText"
+        app:layout_constraintTop_toTopOf="@+id/messageText"
         app:srcCompat="@android:drawable/ic_menu_send" />
 
 
