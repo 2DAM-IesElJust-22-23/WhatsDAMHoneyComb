@@ -19,10 +19,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MessagesWindow::class.java)
             var nickname = binding.nickNameText.text.toString()
 
-            if(nickname != "" && nickname == "Nickname") {
+            if (nickname != "" && nickname == "Nickname"){
                 startActivity(intent)
             }
-
 
         }
 
