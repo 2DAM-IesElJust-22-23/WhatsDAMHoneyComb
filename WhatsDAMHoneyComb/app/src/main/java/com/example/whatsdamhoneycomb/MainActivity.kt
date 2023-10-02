@@ -3,7 +3,7 @@ package com.example.whatsdamhoneycomb
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
+import android.provider.ContactsContract.CommonDataKinds.Nickname
 import com.example.whatsdamhoneycomb.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,8 +15,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonConnect.setOnClickListener(){
+
             val intent = Intent(this, MessagesWindow::class.java)
-            startActivity(intent)
+            var nickname = binding.nickNameText.text.toString()
+
+            if(nickname != "" && nickname == "Nickname") {
+                startActivity(intent)
+            }
+
+
         }
 
     }
