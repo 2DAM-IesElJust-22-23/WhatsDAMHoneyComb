@@ -3,8 +3,11 @@
 
 ## [Versió 0.1.2] - Rehacer el proyecto
 
+### Afegit
+- Proyecto arreglado WhatsDAMHoneyComb
+
 ### Canviat
-- Se ha rehecho todo el proyecta para cambiar la ruta del paquete
+- Proyecto viejo WhatsFAm.0
 
 ## [Versió 0.1.1] - Cambiar  el nombre e ip y borrar lo que se escribe en el chat
 
