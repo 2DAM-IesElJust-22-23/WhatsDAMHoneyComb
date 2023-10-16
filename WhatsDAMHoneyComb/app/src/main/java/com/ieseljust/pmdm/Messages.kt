@@ -1,8 +1,20 @@
 package com.ieseljust.pmdm
 
-import java.io.Serializable
+import java.util.ArrayList
 
-data class Messages(
+class Messages(
     var nomUsuari:String,
     var mensaje:String
-): Serializable
+)
+
+object Message{
+
+    var llistaMensajes: ArrayList<Messages> = ArrayList<Messages>()
+
+    fun add (nomUsuari:String, text:String){
+
+        var mensaje = Messages(nomUsuari,text)
+        llistaMensajes.add(mensaje)
+
+    }
+}

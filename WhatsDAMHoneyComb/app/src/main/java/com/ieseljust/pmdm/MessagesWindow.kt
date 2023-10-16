@@ -2,6 +2,9 @@ package com.ieseljust.pmdm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ieseljust.pmdm.databinding.ActivityMessagesWindowBinding
 
 
@@ -21,5 +24,13 @@ class MessagesWindow : AppCompatActivity() {
         binding.sendMessage.setOnClickListener{
             binding.MessageText.text.clear()
         }
+
+        val recyclerView = findViewById<RecyclerView>(R.id.MessagesRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        // val adaptador = AdaptadorMessages()
     }
+
+
+
 }
