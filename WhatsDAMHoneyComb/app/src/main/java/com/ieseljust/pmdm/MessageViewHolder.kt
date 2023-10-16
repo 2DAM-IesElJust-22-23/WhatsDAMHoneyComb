@@ -1,17 +1,28 @@
 package com.ieseljust.pmdm
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+
+
 import android.view.View
 import android.content.Context
-import android.widget.CheckedTextView
-import androidx.appcompat.view.menu.MenuView.ItemView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MessageViewHolder(textView: View, val context:Context) : View.OnClickListener,RecyclerView.ViewHolder(textView) {
+class MessageViewHolder(itemView:View, val context: Context) : View.OnClickListener,RecyclerView.ViewHolder(itemView) {
 
-    //val textM = itemView(msg_text)
+
+    private val mText = itemView.findViewById(R.id.msg_text) as TextView
+    private val nom = itemView.findViewById(R.id.msg_me_timestamp) as TextView
+
+
+    init{
+        itemView.setOnClickListener(this)
+    }
+    fun bind(
+        Messages: Messages,
+        eventListener: (Message, View) -> Boolean) {
+        nom.text = Messages.nomUsuari
+        mText.text = Messages.mensaje
+    }
     override fun onClick(p0: View?) {
     }
-
 }

@@ -16,7 +16,4 @@ object Message{
         llistaMensajes.add(mensaje)
 
     }
-
-
-
 }
