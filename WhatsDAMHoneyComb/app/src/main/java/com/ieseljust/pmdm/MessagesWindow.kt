@@ -3,10 +3,8 @@ package com.ieseljust.pmdm
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ieseljust.pmdm.Message.listaMensajes
+import com.ieseljust.pmdm.Message.llistaMensajes
 import com.ieseljust.pmdm.databinding.ActivityMessagesWindowBinding
-
-
 
 class MessagesWindow : AppCompatActivity() {
     lateinit var binding: ActivityMessagesWindowBinding
@@ -32,15 +30,22 @@ class MessagesWindow : AppCompatActivity() {
         val layoutManager=LinearLayoutManager(this)
         recyclerView.layoutManager=layoutManager
 
-        val adapter = AdaptadorMessages(listaMensajes)
+        /*
+        // Aquesta variable conte l'adaptador que s'utilitza per a proporcionar les dades i
+        // gestionar la visualització dels missatges en la llista.
+         */
+        val adapter = AdaptadorMessages(llistaMensajes)
         recyclerView.adapter =adapter
 
-
-
+        /*
+        // S'estableix un OnClickListener en el botó sendMessage. Quant es fa clic en el botó,
+        // s'agrega un nou missatge a la llista, es notifica a l'adaptador perquè
+        // actualitze la vista, es desplaça la vista del *RecyclerView al nou missatge i es neteja el camp d'entrada de text.
+         */
         sendMessage.setOnClickListener {
-            listaMensajes.add(Messages(nick.toString(),messageText.text.toString()))
-            binding.MessagesRecyclerView.adapter?.notifyItemInserted(listaMensajes.size-1)
-            recyclerView.scrollToPosition(listaMensajes.size-1)
+            llistaMensajes.add(Messages(nick.toString(),messageText.text.toString()))
+            binding.MessagesRecyclerView.adapter?.notifyItemInserted(llistaMensajes.size-1)
+            recyclerView.scrollToPosition(llistaMensajes.size-1)
             messageText.text.clear()
         }
     }
