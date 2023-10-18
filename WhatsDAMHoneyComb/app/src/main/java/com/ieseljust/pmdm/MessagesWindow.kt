@@ -2,10 +2,10 @@ package com.ieseljust.pmdm
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Message
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.ieseljust.pmdm.Message.listaMensajes
 import com.ieseljust.pmdm.databinding.ActivityMessagesWindowBinding
+
 
 
 class MessagesWindow : AppCompatActivity() {
@@ -16,21 +16,32 @@ class MessagesWindow : AppCompatActivity() {
         binding = ActivityMessagesWindowBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val message= intent.getStringExtra("nickname")
-        val ipVal= intent.getStringExtra("ipOk")
+        val nick = intent.getStringExtra("nickname")
+        val ipVal = intent.getStringExtra("ipOk")
 
-        binding.connectionInfoTextView.text =  "Connectat a "+ipVal+" com a "+ message
+        binding.connectionInfoTextView.text = "Connectat a " + ipVal + " com a " + nick
 
-        binding.sendMessage.setOnClickListener{
-            binding.MessageText.text.clear()
+
+        val messageText=binding.MessageText
+        val sendMessage =binding.sendMessage
+
+
+        val recyclerView=binding.MessagesRecyclerView
+
+
+        val layoutManager=LinearLayoutManager(this)
+        recyclerView.layoutManager=layoutManager
+
+        val adapter = AdaptadorMessages(listaMensajes)
+        recyclerView.adapter =adapter
+
+
+
+        sendMessage.setOnClickListener {
+            listaMensajes.add(Messages(nick.toString(),messageText.text.toString()))
+            binding.MessagesRecyclerView.adapter?.notifyItemInserted(listaMensajes.size-1)
+            recyclerView.scrollToPosition(listaMensajes.size-1)
+            messageText.text.clear()
         }
-
-        val recyclerView = findViewById<RecyclerView>(R.id.MessagesRecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        // val adaptador = AdaptadorMessages()
     }
-
-
-
 }

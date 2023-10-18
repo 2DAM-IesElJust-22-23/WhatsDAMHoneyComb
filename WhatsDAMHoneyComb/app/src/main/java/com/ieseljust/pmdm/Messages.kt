@@ -9,12 +9,12 @@ class Messages(
 
 object Message{
 
-    var llistaMensajes: ArrayList<Messages> = ArrayList<Messages>()
+
+    var listaMensajes=mutableListOf<Messages>()
 
     fun add (nomUsuari:String, text:String){
 
         var mensaje = Messages(nomUsuari,text)
-        llistaMensajes.add(mensaje)
-
+        listaMensajes.add(mensaje)
     }
 }

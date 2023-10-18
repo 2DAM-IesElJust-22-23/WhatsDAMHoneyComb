@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import android.content.Context
 
-class AdaptadorMessages (val context: Context) :RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class AdaptadorMessages(var listaMensajes: List<Messages>) :RecyclerView.Adapter<MessageViewHolder>(){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
         val inflater=LayoutInflater.from((parent.context))
         val vista= inflater.inflate(
             R.layout.my_msg_viewholder,
@@ -15,16 +15,15 @@ class AdaptadorMessages (val context: Context) :RecyclerView.Adapter<RecyclerVie
         return MessageViewHolder(vista)
     }
 
-    override fun getItemCount(): Int {
-        return Message.llistaMensajes.size
+    override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
+        holder.bind(listaMensajes[position])
     }
 
-    override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int) {
-        (holder as MessageViewHolder).bind(
-            Message.llistaMensajes[position])
+    override fun getItemCount(): Int {
+        return Message.listaMensajes.size
     }
+
+
 
 
 }
