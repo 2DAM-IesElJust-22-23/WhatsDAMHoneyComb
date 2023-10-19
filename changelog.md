@@ -1,6 +1,6 @@
 # Registre de canvis
 
-## [Versió 2.1] - Correció de probleme :)
+## [Versió 2.1] - Correció de problemes :)
 ### Canviat:
 - Importació Messages i Message al AdaptadorMessages i MessagesWindow.
 - Finalització del RecycledView.
