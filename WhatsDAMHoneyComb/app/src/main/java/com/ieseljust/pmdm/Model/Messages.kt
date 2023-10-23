@@ -1,4 +1,4 @@
-package com.ieseljust.pmdm
+package com.ieseljust.pmdm.Model
 
 /*
 // Creació de la classe Messages.

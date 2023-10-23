@@ -1,9 +1,11 @@
-package com.ieseljust.pmdm
+package com.ieseljust.pmdm.Vista.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ieseljust.pmdm.Message.llistaMensajes
+import com.ieseljust.pmdm.Model.Message.llistaMensajes
+import com.ieseljust.pmdm.Model.Messages
+import com.ieseljust.pmdm.ViewModels.AdaptadorMessages
 import com.ieseljust.pmdm.databinding.ActivityMessagesWindowBinding
 
 class MessagesWindow : AppCompatActivity() {

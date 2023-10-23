@@ -1,4 +1,4 @@
-package com.ieseljust.pmdm
+package com.ieseljust.pmdm.Vista.UI
 
 import android.content.Intent
 import android.net.InetAddresses.isNumericAddress
@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
             /*
              * Crear variables nombre e ip para luego enviarlo con un intent
              */
+            
             val intent = Intent(baseContext, MessagesWindow::class.java)
             var nickname = binding.nickNameText.text.toString()
             var ipOk = binding.serverAddressText.text.toString()

@@ -1,8 +1,10 @@
-package com.ieseljust.pmdm
+package com.ieseljust.pmdm.ViewModels
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ieseljust.pmdm.Model.Messages
+import com.ieseljust.pmdm.R
 import java.text.SimpleDateFormat
 import java.util.Date
 
