@@ -20,5 +20,7 @@ class MessagesRepository private constructor() {
 
     fun getLlistaMensajes() = Message.llistaMensajes
     fun getLlistaSize() = Message.llistaMensajes.size
-    fun addMessage() = Message.add()
+    fun addMessage(nom:String, mText:String) {
+        Message.add(nom, mText)
+    }
 }

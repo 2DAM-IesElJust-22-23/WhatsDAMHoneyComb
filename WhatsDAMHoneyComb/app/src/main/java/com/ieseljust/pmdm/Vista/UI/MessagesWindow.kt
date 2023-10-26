@@ -2,19 +2,23 @@ package com.ieseljust.pmdm.Vista.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ieseljust.pmdm.Model.Message.llistaMensajes
-import com.ieseljust.pmdm.Model.Messages
-import com.ieseljust.pmdm.ViewModels.AdaptadorMessages
+import com.ieseljust.pmdm.ViewModels.MessagesViewModel
 import com.ieseljust.pmdm.databinding.ActivityMessagesWindowBinding
 
 class MessagesWindow : AppCompatActivity() {
     lateinit var binding: ActivityMessagesWindowBinding
+    lateinit var viewModel: MessagesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMessagesWindowBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel=ViewModelProvider(this)[MessagesViewModel::class.java]
+
 
         val nick = intent.getStringExtra("nickname")
         val ipVal = intent.getStringExtra("ipOk")
@@ -36,16 +40,16 @@ class MessagesWindow : AppCompatActivity() {
         // Aquesta variable conte l'adaptador que s'utilitza per a proporcionar les dades i
         // gestionar la visualització dels missatges en la llista.
          */
-        val adapter = AdaptadorMessages(llistaMensajes)
-        recyclerView.adapter =adapter
-
+        viewModel.adaptador.observe(this){
+            recyclerView.adapter =it
+        }
         /*
         // S'estableix un OnClickListener en el botó sendMessage. Quant es fa clic en el botó,
         // s'agrega un nou missatge a la llista, es notifica a l'adaptador perquè
         // actualitze la vista, es desplaça la vista del *RecyclerView al nou missatge i es neteja el camp d'entrada de text.
          */
         sendMessage.setOnClickListener {
-            llistaMensajes.add(Messages(nick.toString(),messageText.text.toString()))
+            viewModel.add(nick.toString(),messageText.text.toString())
             binding.MessagesRecyclerView.adapter?.notifyItemInserted(llistaMensajes.size-1)
             recyclerView.scrollToPosition(llistaMensajes.size-1)
             messageText.text.clear()

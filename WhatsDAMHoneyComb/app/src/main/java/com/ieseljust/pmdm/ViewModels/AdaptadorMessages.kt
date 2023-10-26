@@ -8,7 +8,7 @@ import com.ieseljust.pmdm.Model.Messages
 import com.ieseljust.pmdm.R
 import com.ieseljust.pmdm.Repositori.MessagesRepository
 
-class AdaptadorMessages(val context:Context) :RecyclerView.Adapter<MessageViewHolder>(){
+class AdaptadorMessages() :RecyclerView.Adapter<MessageViewHolder>(){
 
     /*
     // Funció que crea una nova vista d'element en la llista.

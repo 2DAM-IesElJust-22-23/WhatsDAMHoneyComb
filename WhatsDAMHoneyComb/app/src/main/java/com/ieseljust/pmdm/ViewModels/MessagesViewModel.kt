@@ -9,15 +9,12 @@ import com.ieseljust.pmdm.Repositori.MessagesRepository
 class MessagesViewModel(application: Application):AndroidViewModel(application){
 
     private val _adaptador = MutableLiveData<AdaptadorMessages>().apply ({
-        value = AdaptadorMessages(getApplication<Application>().applicationContext)
+        value = AdaptadorMessages()
     })
     val adaptador:MutableLiveData<AdaptadorMessages> = _adaptador
 
-    public fun add(){
-        if(MessagesRepository.getInstance().addMessage()){
-            adaptador.value?.notifyItemInserted(MessagesRepository.getInstance().getLlistaSize() - 1)
-        }
+    fun add(nom: String, mText: String){
+        MessagesRepository.getInstance().addMessage(nom,mText)
+        adaptador.value?.notifyItemInserted(MessagesRepository.getInstance().getLlistaSize() - 1)
     }
-
-
 }

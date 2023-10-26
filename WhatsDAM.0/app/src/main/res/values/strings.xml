@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">WhatsDAMHoneyComb</string>
-    <string name="nickname">Nickname\n</string>
-    <string name="serverAddress">Server Address</string>
-    <string name="CONNECT">CONNECT</string>
-</resources>
