@@ -1,5 +1,10 @@
 # Registre de canvis
 
+## [Versió 2.2] - Adaptació del codi al model MVVM
+### Canviat:
+- Restructura del projecte per paquets.
+- Adaptacio del codi al model MVVM.
+  
 ## [Versió 2.1] - Correció de problemes :)
 ### Canviat:
 - Importació Messages i Message al AdaptadorMessages i MessagesWindow.
