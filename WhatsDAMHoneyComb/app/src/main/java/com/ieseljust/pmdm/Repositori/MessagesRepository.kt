@@ -1,6 +1,6 @@
 package com.ieseljust.pmdm.Repositori
 
-import com.ieseljust.pmdm.Model.Messages
+
 import com.ieseljust.pmdm.Model.Message
 
 class MessagesRepository private constructor() {
@@ -18,8 +18,19 @@ class MessagesRepository private constructor() {
         }
     }
 
+    /**
+     * Obté la llistaMensajes.
+     */
     fun getLlistaMensajes() = Message.llistaMensajes
+
+    /**
+     * Obté el tamany de la llistaMensajes.
+     */
     fun getLlistaSize() = Message.llistaMensajes.size
+
+    /**
+     * Afig un mensaje a la llistaMensajes.
+     */
     fun addMessage(nom:String, mText:String) {
         Message.add(nom, mText)
     }

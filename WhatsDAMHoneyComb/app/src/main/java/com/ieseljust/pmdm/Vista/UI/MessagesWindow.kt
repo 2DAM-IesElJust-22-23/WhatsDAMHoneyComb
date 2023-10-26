@@ -36,17 +36,17 @@ class MessagesWindow : AppCompatActivity() {
         val layoutManager=LinearLayoutManager(this)
         recyclerView.layoutManager=layoutManager
 
-        /*
-        // Aquesta variable conte l'adaptador que s'utilitza per a proporcionar les dades i
-        // gestionar la visualització dels missatges en la llista.
+        /**
+         * Aquesta variable conte l'adaptador que s'utilitza per a proporcionar les dades i
+         * gestionar la visualització dels missatges en la llista.
          */
         viewModel.adaptador.observe(this){
             recyclerView.adapter =it
         }
-        /*
-        // S'estableix un OnClickListener en el botó sendMessage. Quant es fa clic en el botó,
-        // s'agrega un nou missatge a la llista, es notifica a l'adaptador perquè
-        // actualitze la vista, es desplaça la vista del *RecyclerView al nou missatge i es neteja el camp d'entrada de text.
+        /**
+         * S'estableix un OnClickListener en el botó sendMessage. Quant es fa clic en el botó,
+         * s'agrega un nou missatge a la llista, es notifica a l'adaptador perquè
+         * actualitze la vista, es desplaça la vista del *RecyclerView al nou missatge i es neteja el camp d'entrada de text.
          */
         sendMessage.setOnClickListener {
             viewModel.add(nick.toString(),messageText.text.toString())

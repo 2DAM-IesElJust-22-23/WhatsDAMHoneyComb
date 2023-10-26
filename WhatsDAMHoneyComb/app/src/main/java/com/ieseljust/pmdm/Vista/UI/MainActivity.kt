@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonConnect.setOnClickListener() {
 
-            /*
+            /**
              * Crear variables nombre e ip para luego enviarlo con un intent
              */
             
