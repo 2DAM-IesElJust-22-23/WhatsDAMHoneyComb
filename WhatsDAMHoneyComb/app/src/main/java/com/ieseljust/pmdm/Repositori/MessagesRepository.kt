@@ -2,6 +2,7 @@ package com.ieseljust.pmdm.Repositori
 
 
 import com.ieseljust.pmdm.Model.Message
+import com.ieseljust.pmdm.Model.Messages
 
 class MessagesRepository private constructor() {
 
@@ -34,4 +35,6 @@ class MessagesRepository private constructor() {
     fun addMessage(nom:String, mText:String) {
         Message.add(nom, mText)
     }
+
+    fun remove(m:Message) = Message.llistaMensajes.remove(m)
 }

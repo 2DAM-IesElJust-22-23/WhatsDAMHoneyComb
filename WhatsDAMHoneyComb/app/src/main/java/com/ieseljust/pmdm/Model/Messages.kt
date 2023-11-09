@@ -22,4 +22,10 @@ object Message{
         var mensaje = Messages(nomUsuari,text)
         llistaMensajes.add(mensaje)
     }
+
+    fun remove (messageDelete:Messages):Int{
+        val index = Message.llistaMensajes.indexOf(messageDelete)
+        Message.llistaMensajes.remove(messageDelete)
+        return index
+    }
 }

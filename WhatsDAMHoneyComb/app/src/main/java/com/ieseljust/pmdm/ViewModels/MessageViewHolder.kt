@@ -8,6 +8,7 @@ import com.ieseljust.pmdm.Model.Messages
 import com.ieseljust.pmdm.R
 import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.EventListener
 
 class MessageViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
 
@@ -17,7 +18,7 @@ class MessageViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
     /**
      * Funció que s'utiliza per a vincular les dades del mensaje al diseny.
      */
-    fun bind(message: Messages){
+    fun bind(message: Messages, eventListener: (Messages,View) -> Boolean){
 
         mText.text = message.mensaje
 
@@ -29,6 +30,10 @@ class MessageViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView) {
         val horaF = dataFormat.format(horaAct)
 
         hora.text = horaF.toString()
+
+        itemView.setOnLongClickListener(
+            eventListener(message, itemView)
+        )
 
     }
 }
