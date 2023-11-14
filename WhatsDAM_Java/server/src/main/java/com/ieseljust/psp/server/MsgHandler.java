@@ -160,6 +160,7 @@ class MsgHandler implements Runnable {
              *           en lloc de fer-ho tot al case. 
              * 
              */
+            
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
