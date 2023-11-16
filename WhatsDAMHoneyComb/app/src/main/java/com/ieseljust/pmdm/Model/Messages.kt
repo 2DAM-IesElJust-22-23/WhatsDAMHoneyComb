@@ -55,4 +55,10 @@ object Message {
         messagesList.add(mensaje)
         llistaMensajes.value = messagesList
     }
+
+    fun remove (messageDelete:Messages):Int{
+        val index = Message.llistaMensajes.indexOf(messageDelete)
+        Message.llistaMensajes.remove(messageDelete)
+        return index
+    }
 }
