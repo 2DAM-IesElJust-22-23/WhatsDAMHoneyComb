@@ -88,7 +88,6 @@ public class serverListener implements Runnable {
                 for (int i = 0; i < userList.length(); i++) {
                     userArrayList.add(userList.getString(i));
                 }
-                userArrayList.addAll(vm.getLlistaUsuaris());
                 vm.updateUserList(userArrayList);
 
                 break;
