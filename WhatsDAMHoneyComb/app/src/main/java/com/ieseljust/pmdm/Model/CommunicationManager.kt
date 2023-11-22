@@ -7,8 +7,11 @@ import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.BufferedWriter
+import java.io.IOException
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.io.PrintWriter
+import java.net.InetSocketAddress
 import java.net.ServerSocket
 import java.net.Socket
 
@@ -22,31 +25,35 @@ class CommunicationManager {
     /**
      * Método para enviar un mensaje al servidor y recibir la respuesta.
      */
-    suspend fun sendServer(msg: String): JSONObject {
-        return withContext(Dispatchers.IO) {
+    fun sendServer(msg: String): JSONObject {
+
+            val socket = Socket()
+            val socketADDR: InetSocketAddress =
+                InetSocketAddress(server, SERVER_PORT)
+
             try {
-                val socket = Socket(server, SERVER_PORT)
-                val writer = BufferedWriter(OutputStreamWriter(socket.getOutputStream()))
-                val reader = BufferedReader(InputStreamReader(socket.getInputStream()))
+                socket.connect(socketADDR)
+                val `is` = socket.getInputStream()
+                val os = socket.getOutputStream()
+                val osw = OutputStreamWriter(os)
+                val isr = InputStreamReader(`is`)
+                val bReader = BufferedReader(isr)
+                val pw = PrintWriter(osw)
 
-                // Enviar mensaje al servidor
-                writer.write(msg)
-                writer.newLine()
-                writer.flush()
+                pw.println(msg)
+                pw.flush()
 
-                // Recibir respuesta del servidor
-                val response = reader.readLine()
+                val line = bReader.readLine()
+                val resposta = JSONObject(line)
 
-                // Cerrar streams y socket
-                writer.close()
-                reader.close()
-                socket.close()
+                bReader.close()
+                pw.close()
+                return resposta
 
-                // Transformar la respuesta a JSON y devolverla
-                JSONObject(response)
-            } catch (e: Exception) {
-                // Manejar excepciones, por ejemplo, enviar un mensaje de error
-                JSONObject().put("status", "error")
+            } catch (ex: IOException) {
+                println("La conexió no se ha pogut establir.")
+                val noResposta = JSONObject()
+                return noResposta
             }
         }
     }

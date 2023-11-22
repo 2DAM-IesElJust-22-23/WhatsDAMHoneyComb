@@ -43,12 +43,9 @@ object Message {
 
             // Llamar al método SendServer de la clase CommunicacionManager
             // (Asumiendo que tienes una clase CommunicacionManager con el método SendServer)
-            CommunicationManager.SendServer(jsonString)
+            CommunicationManager.sendServer(jsonString)
 
 
-            /**
-     * Funció que afegeix a la llista el mensaje.
-     */
     fun add(nomUsuari: String, text: String) {
         val mensaje = Messages(nomUsuari, text)
         val messagesList = llistaMensajes.value ?: ArrayList()
@@ -56,9 +53,11 @@ object Message {
         llistaMensajes.value = messagesList
     }
 
+            /*
     fun remove (messageDelete:Messages):Int{
         val index = Message.llistaMensajes.indexOf(messageDelete)
         Message.llistaMensajes.remove(messageDelete)
         return index
     }
+             */
 }
